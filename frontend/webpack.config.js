@@ -17,7 +17,22 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.css$/, //busca string que termina com .css
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i, //i transforma o key em insensitivo
+        use: [
+          { loader: 'file-loader' },
+        ]  
       }
+
     ]
   }
 }
